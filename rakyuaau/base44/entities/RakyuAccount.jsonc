@@ -1,0 +1,116 @@
+{
+  "name": "RakyuAccount",
+  "type": "object",
+  "properties": {
+    "name_sei": {
+      "type": "string",
+      "title": "\u59d3"
+    },
+    "name_mei": {
+      "type": "string",
+      "title": "\u540d\u524d"
+    },
+    "birthday": {
+      "type": "string",
+      "title": "\u751f\u5e74\u6708\u65e5"
+    },
+    "gender": {
+      "type": "string",
+      "title": "\u6027\u5225",
+      "enum": [
+        "\u5973\u6027",
+        "\u7537\u6027",
+        "\u56de\u7b54\u3057\u306a\u3044"
+      ]
+    },
+    "rakyuaid": {
+      "type": "string",
+      "title": "RakyuaID"
+    },
+    "password_hash": {
+      "type": "string",
+      "title": "\u30d1\u30b9\u30ef\u30fc\u30c9"
+    },
+    "email": {
+      "type": "string",
+      "title": "\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9"
+    },
+    "phone": {
+      "type": "string",
+      "title": "\u96fb\u8a71\u756a\u53f7"
+    },
+    "avatar_url": {
+      "type": "string",
+      "title": "\u30a2\u30a4\u30b3\u30f3\u753b\u50cf"
+    },
+    "is_locked": {
+      "type": "boolean",
+      "title": "\u30ed\u30c3\u30af\u72b6\u614b",
+      "default": false
+    },
+    "is_developer": {
+      "type": "boolean",
+      "title": "\u30c7\u30d9\u30ed\u30c3\u30d1\u30fc",
+      "default": false
+    },
+    "rakyua_dvid": {
+      "type": "string",
+      "title": "RakyuaDVID\uff08\u30c7\u30d9\u30ed\u30c3\u30d1\u30fcID\uff09"
+    },
+    "allowed_scopes": {
+      "type": "string",
+      "title": "\u8a31\u53ef\u30b9\u30b3\u30fc\u30d7(JSON)"
+    },
+    "developer_pin": {
+      "type": "string",
+      "title": "\u30c7\u30d9\u30ed\u30c3\u30d1\u30fcPIN(raikyun\u5c02\u7528)"
+    },
+    "passkey_credentials": {
+      "type": "string",
+      "title": "\u30d1\u30b9\u30ad\u30fc\u60c5\u5831(JSON)"
+    },
+    "login_version": {
+      "type": "string",
+      "title": "\u30ed\u30b0\u30a4\u30f3\u30da\u30fc\u30b8\u30d0\u30fc\u30b8\u30e7\u30f3",
+      "enum": [
+        "v1",
+        "v2"
+      ],
+      "default": "v2"
+    }
+  },
+  "required": [
+    "name_sei",
+    "name_mei",
+    "rakyuaid",
+    "password_hash"
+  ],
+  "rls": {
+    "create": null,
+    "read": null,
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

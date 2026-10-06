@@ -1,0 +1,50 @@
+{
+  "name": "RakyuApi",
+  "type": "object",
+  "properties": {
+    "rakyua_account_id": {
+      "type": "string",
+      "title": "\u30a2\u30ab\u30a6\u30f3\u30c8ID"
+    },
+    "api_name": {
+      "type": "string",
+      "title": "API\u540d"
+    },
+    "service_name": {
+      "type": "string",
+      "title": "\u30b5\u30fc\u30d3\u30b9\u540d"
+    },
+    "company_name": {
+      "type": "string",
+      "title": "\u30b5\u30fc\u30d3\u30b9\u4f1a\u793e\u540d"
+    },
+    "contact_email": {
+      "type": "string",
+      "title": "\u767b\u9332\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9"
+    },
+    "forward_url": {
+      "type": "string",
+      "title": "\u8ee2\u9001URL"
+    },
+    "api_id": {
+      "type": "string",
+      "title": "API ID"
+    },
+    "allowed_scopes": {
+      "type": "string",
+      "title": "\u8a31\u53ef\u30b9\u30b3\u30fc\u30d7(\u30ab\u30f3\u30de\u533a\u5207\u308a)"
+    },
+    "is_active": {
+      "type": "boolean",
+      "title": "\u6709\u52b9",
+      "default": true
+    }
+  },
+  "required": [
+    "rakyua_account_id",
+    "api_name",
+    "service_name",
+    "forward_url",
+    "api_id"
+  ]
+}

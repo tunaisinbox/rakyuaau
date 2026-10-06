@@ -1,0 +1,36 @@
+{
+  "name": "ApiKey",
+  "type": "object",
+  "properties": {
+    "rakyua_account_id": {
+      "type": "string",
+      "title": "\u30a2\u30ab\u30a6\u30f3\u30c8ID"
+    },
+    "key_name": {
+      "type": "string",
+      "title": "\u30ad\u30fc\u540d"
+    },
+    "api_key": {
+      "type": "string",
+      "title": "API\u30ad\u30fc"
+    },
+    "is_active": {
+      "type": "boolean",
+      "title": "\u6709\u52b9",
+      "default": true
+    },
+    "usage_count": {
+      "type": "number",
+      "title": "\u5229\u7528\u56de\u6570",
+      "default": 0
+    },
+    "last_used": {
+      "type": "string",
+      "title": "\u6700\u7d42\u5229\u7528\u65e5\u6642"
+    }
+  },
+  "required": [
+    "rakyua_account_id",
+    "api_key"
+  ]
+}
